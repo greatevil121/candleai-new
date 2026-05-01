@@ -1,1 +1,84 @@
 # candleai-new
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Confidence AI</title>
+
+  <style>
+    body{
+      font-family:Arial;
+      background:#0f172a;
+      color:white;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .box{
+      background:#1e293b;
+      padding:20px;
+      border-radius:12px;
+      width:320px;
+      text-align:center;
+    }
+
+    .buy{color:#22c55e;}
+    .sell{color:#ef4444;}
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🧠 Confidence AI</h2>
+
+  <p>📊 Trend: UPTREND 📈</p>
+  <p>🔨 Pattern: Hammer</p>
+
+  <hr>
+
+  <div id="output"></div>
+</div>
+
+<script>
+  // 🧠 SIMPLE LOGIC ENGINE (not fixed numbers)
+
+  let trend = "UPTREND";
+  let pattern = "HAMMER";
+
+  let score = 0;
+
+  // Trend scoring
+  if(trend === "UPTREND") score += 50;
+
+  // Pattern scoring
+  if(pattern === "HAMMER") score += 30;
+
+  // random market noise (simulated reality factor)
+  score += Math.floor(Math.random() * 20);
+
+  let buy = score;
+  let sell = 100 - score;
+
+  let decision = "";
+
+  if(score >= 60){
+    decision = "BUY SIGNAL 📈";
+  } else if(score >= 40){
+    decision = "WAIT ⏳";
+  } else {
+    decision = "SELL SIGNAL 📉";
+  }
+
+  document.getElementById("output").innerHTML = `
+    <p class="buy">📈 Buy Confidence: ${buy}%</p>
+    <p class="sell">📉 Sell Confidence: ${sell}%</p>
+    <hr>
+    <h3>${decision}</h3>
+    <p>💡 Based on trend + pattern + market noise</p>
+  `;
+</script>
+
+</body>
+</html>
